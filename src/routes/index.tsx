@@ -93,6 +93,22 @@ function ThemePage() {
             edging and fountain-blue accents.
           </p>
         </div>
+        <div className="inline-flex rounded-md border border-border bg-secondary p-1">
+          {(["dark", "light"] as const).map((m) => (
+            <button
+              key={m}
+              onClick={() => setMode(m)}
+              className={`rounded px-4 py-1.5 font-display text-sm uppercase tracking-wider transition ${
+                mode === m
+                  ? "bg-[image:var(--gradient-gold)] text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {m === "dark" ? "Night game" : "Day game"}
+            </button>
+          ))}
+        </div>
+
         <div className="flex flex-wrap justify-center gap-3">
           <button
             onClick={copyCss}
