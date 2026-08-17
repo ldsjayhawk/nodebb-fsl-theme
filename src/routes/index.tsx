@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "@/assets/fsl-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -59,6 +59,12 @@ function AdSlot({ label, className = "" }: { label: string; className?: string }
 
 function ThemePage() {
   const [copied, setCopied] = useState(false);
+  const [mode, setMode] = useState<"dark" | "light">("dark");
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("light", mode === "light");
+  }, [mode]);
+
 
   const copyCss = async () => {
     const res = await fetch("/nodebb-fsl-theme.css");
