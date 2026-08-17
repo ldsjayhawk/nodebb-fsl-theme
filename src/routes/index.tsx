@@ -45,6 +45,18 @@ const topics = [
   { title: "Dynasty rookie rankings v4.0", author: "GoldGloveGM", replies: 132, tag: "Guide" },
 ];
 
+function AdSlot({ label, className = "" }: { label: string; className?: string }) {
+  return (
+    <aside
+      aria-label="Advertisement"
+      className={`flex flex-col items-center justify-center gap-1 rounded-lg border border-dashed border-gold/50 bg-[image:var(--gradient-stadium)] text-center ${className}`}
+    >
+      <span className="font-display text-xs uppercase tracking-[0.3em] text-gold">Sponsored</span>
+      <span className="text-xs text-muted-foreground">{label}</span>
+    </aside>
+  );
+}
+
 function ThemePage() {
   const [copied, setCopied] = useState(false);
 
@@ -151,6 +163,8 @@ function ThemePage() {
           </div>
         </div>
 
+        <AdSlot label="Leaderboard ad · 728×90" className="mt-6 h-24" />
+
         <div className="mt-6 overflow-hidden rounded-lg border border-border">
           <div className="border-b-2 border-gold bg-secondary px-4 py-2 font-display text-sm uppercase tracking-widest">
             Recent topics
@@ -176,6 +190,8 @@ function ThemePage() {
             ))}
           </ul>
         </div>
+
+        <AdSlot label="In-feed / sidebar ad · 300×250" className="mt-6 h-40" />
 
         <blockquote className="mt-6 rounded-md border-l-4 border-fountain bg-fountain/10 px-4 py-3 text-sm">
           Quotes, code blocks and alerts inherit the fountain-blue accent so replies stay readable
