@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "@/assets/fsl-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -59,6 +59,12 @@ function AdSlot({ label, className = "" }: { label: string; className?: string }
 
 function ThemePage() {
   const [copied, setCopied] = useState(false);
+  const [mode, setMode] = useState<"dark" | "light">("dark");
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("light", mode === "light");
+  }, [mode]);
+
 
   const copyCss = async () => {
     const res = await fetch("/nodebb-fsl-theme.css");
@@ -87,6 +93,22 @@ function ThemePage() {
             edging and fountain-blue accents.
           </p>
         </div>
+        <div className="inline-flex rounded-md border border-border bg-secondary p-1">
+          {(["dark", "light"] as const).map((m) => (
+            <button
+              key={m}
+              onClick={() => setMode(m)}
+              className={`rounded px-4 py-1.5 font-display text-sm uppercase tracking-wider transition ${
+                mode === m
+                  ? "bg-[image:var(--gradient-gold)] text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {m === "dark" ? "Night game" : "Day game"}
+            </button>
+          ))}
+        </div>
+
         <div className="flex flex-wrap justify-center gap-3">
           <button
             onClick={copyCss}
