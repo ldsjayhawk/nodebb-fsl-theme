@@ -191,6 +191,8 @@ function ThemePage() {
           </ul>
         </div>
 
+        <AdSlot label="In-feed / sidebar ad · 300×250" className="mt-6 h-40" />
+
         <blockquote className="mt-6 rounded-md border-l-4 border-fountain bg-fountain/10 px-4 py-3 text-sm">
           Quotes, code blocks and alerts inherit the fountain-blue accent so replies stay readable
           against the navy plate.
