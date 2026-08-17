@@ -222,6 +222,40 @@ function ThemePage() {
       </section>
 
       <section className="mt-16 rounded-lg border border-border bg-card p-6">
+        <h2 className="font-display text-2xl uppercase tracking-wide">Adding real ads</h2>
+        <p className="mt-3 text-sm text-muted-foreground">
+          The stylesheet only <em>styles</em> an ad box — it can&apos;t create one. To get an actual
+          ad on the forum you also need a small piece of HTML, added through NodeBB widgets:
+        </p>
+        <ol className="mt-4 space-y-2 text-sm text-muted-foreground">
+          <li>1. ACP → Extend → Widgets, pick a zone (Global Header, Sidebar or Global Footer).</li>
+          <li>2. Drag in an <span className="text-foreground">HTML</span> widget.</li>
+          <li>
+            3. Paste the snippet below, drop your AdSense / sponsor code where marked, then Save.
+          </li>
+          <li>
+            4. AdSense users: add the loader <span className="text-foreground">&lt;script&gt;</span>{" "}
+            once in Appearance → Custom HTML &amp; CSS → Custom Header.
+          </li>
+        </ol>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <button
+            onClick={copyAds}
+            className="rounded-md border border-[color-mix(in_oklab,var(--gold)_60%,black)] bg-[image:var(--gradient-gold)] px-5 py-2.5 font-display text-sm uppercase tracking-wider text-primary-foreground transition hover:brightness-110"
+          >
+            {copiedAds ? "Copied!" : "Copy ad widget HTML"}
+          </button>
+          <a
+            href="/nodebb-fsl-ads.html"
+            download
+            className="rounded-md border border-border bg-secondary px-5 py-2.5 font-display text-sm uppercase tracking-wider text-secondary-foreground transition hover:border-fountain"
+          >
+            Download .html
+          </a>
+        </div>
+      </section>
+
+      <section className="mt-16 rounded-lg border border-border bg-card p-6">
         <h2 className="font-display text-2xl uppercase tracking-wide">Install on NodeBB</h2>
         <ol className="mt-4 space-y-2 text-sm text-muted-foreground">
           <li>1. In the ACP, install the Harmony skin and set the default dark mode.</li>
@@ -236,6 +270,7 @@ function ThemePage() {
           </li>
         </ol>
       </section>
+
 
       <footer className="mt-16 border-t border-border py-8 text-center text-sm text-muted-foreground">
         Fantasy Sports Legends — theme preview
