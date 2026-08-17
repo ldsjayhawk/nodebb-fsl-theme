@@ -45,6 +45,18 @@ const topics = [
   { title: "Dynasty rookie rankings v4.0", author: "GoldGloveGM", replies: 132, tag: "Guide" },
 ];
 
+function AdSlot({ label, className = "" }: { label: string; className?: string }) {
+  return (
+    <aside
+      aria-label="Advertisement"
+      className={`flex flex-col items-center justify-center gap-1 rounded-lg border border-dashed border-gold/50 bg-[image:var(--gradient-stadium)] text-center ${className}`}
+    >
+      <span className="font-display text-xs uppercase tracking-[0.3em] text-gold">Sponsored</span>
+      <span className="text-xs text-muted-foreground">{label}</span>
+    </aside>
+  );
+}
+
 function ThemePage() {
   const [copied, setCopied] = useState(false);
 
