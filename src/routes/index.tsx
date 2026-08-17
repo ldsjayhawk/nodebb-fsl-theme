@@ -151,6 +151,8 @@ function ThemePage() {
           </div>
         </div>
 
+        <AdSlot label="Leaderboard ad · 728×90" className="mt-6 h-24" />
+
         <div className="mt-6 overflow-hidden rounded-lg border border-border">
           <div className="border-b-2 border-gold bg-secondary px-4 py-2 font-display text-sm uppercase tracking-widest">
             Recent topics
