@@ -1,0 +1,161 @@
+/* ==========================================================================
+   Fantasy Sports Legends — NodeBB Custom CSS
+   Paste into: ACP > Appearance > Custom HTML & CSS > Custom CSS
+   Designed for the Harmony/Persona skin (dark stadium navy + championship gold)
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&display=swap");
+
+:root,
+html[data-bs-theme="dark"],
+html[data-bs-theme="light"] {
+  --fsl-navy-deep: #0b1526;
+  --fsl-navy: #12213d;
+  --fsl-navy-soft: #1b2f52;
+  --fsl-line: #2c4470;
+  --fsl-gold: #c9a227;
+  --fsl-gold-bright: #f0cf5e;
+  --fsl-fountain: #4aa8ff;
+  --fsl-field: #2f7d42;
+  --fsl-text: #e9eef7;
+  --fsl-muted: #a3b2cc;
+
+  --bs-body-bg: var(--fsl-navy-deep);
+  --bs-body-color: var(--fsl-text);
+  --bs-secondary-bg: var(--fsl-navy);
+  --bs-tertiary-bg: var(--fsl-navy-soft);
+  --bs-border-color: var(--fsl-line);
+  --bs-primary: var(--fsl-gold);
+  --bs-link-color: var(--fsl-gold-bright);
+  --bs-link-hover-color: #ffffff;
+  --bs-border-radius: 6px;
+}
+
+body {
+  background-color: var(--fsl-navy-deep);
+  background-image:
+    radial-gradient(ellipse 90% 50% at 50% 0%, rgba(74, 168, 255, 0.18), transparent 70%),
+    linear-gradient(180deg, #0b1526 0%, #16274a 100%);
+  background-attachment: fixed;
+  color: var(--fsl-text);
+  font-family: "Barlow", system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, .brand, .navbar-brand, .card-header, .topic-title {
+  font-family: "Anton", "Barlow", sans-serif;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* --- Header / navbar ---------------------------------------------------- */
+.navbar, #header-menu, .header {
+  background: linear-gradient(180deg, #101d36, #0b1526) !important;
+  border-bottom: 3px solid var(--fsl-gold);
+  box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.9);
+}
+.navbar-brand img { max-height: 44px; }
+.navbar .nav-link { color: var(--fsl-text) !important; font-weight: 600; }
+.navbar .nav-link:hover,
+.navbar .nav-link.active { color: var(--fsl-gold-bright) !important; }
+
+/* --- Cards, category rows, posts ---------------------------------------- */
+.card,
+.categories .category-item,
+.category .topic-list-header,
+[component="category/topic"],
+[component="post"],
+.post-container,
+.panel {
+  background: linear-gradient(180deg, #16274a, #12213d);
+  border: 1px solid var(--fsl-line);
+  border-radius: 8px;
+  color: var(--fsl-text);
+}
+.card-header,
+.topic-list-header {
+  background: linear-gradient(180deg, #1b2f52, #14243f);
+  border-bottom: 2px solid var(--fsl-gold);
+  color: var(--fsl-text);
+}
+[component="category/topic"]:hover,
+.categories .category-item:hover {
+  border-color: var(--fsl-gold);
+  box-shadow: 0 0 0 1px rgba(201, 162, 39, 0.35);
+}
+
+/* --- Buttons ------------------------------------------------------------ */
+.btn-primary,
+.btn.btn-primary,
+[component="category/post"] {
+  background: linear-gradient(180deg, var(--fsl-gold-bright), var(--fsl-gold));
+  border: 1px solid #8c6f14;
+  color: #10203a;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.btn-primary:hover { filter: brightness(1.08); color: #10203a; }
+.btn-secondary,
+.btn-outline-secondary {
+  background: transparent;
+  border: 1px solid var(--fsl-line);
+  color: var(--fsl-text);
+}
+.btn-secondary:hover { border-color: var(--fsl-fountain); color: #fff; }
+
+/* --- Badges, pills, tags ------------------------------------------------ */
+.badge, .tag-item, .label {
+  background: rgba(74, 168, 255, 0.15);
+  border: 1px solid rgba(74, 168, 255, 0.4);
+  color: #cfe6ff;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.badge.unread, .unread-count { background: var(--fsl-gold); color: #10203a; border-color: #8c6f14; }
+
+/* --- Avatars, timestamps, meta ------------------------------------------ */
+.avatar { border: 2px solid var(--fsl-gold); border-radius: 6px; }
+.timeago, .text-muted, small { color: var(--fsl-muted) !important; }
+
+/* --- Inputs ------------------------------------------------------------- */
+.form-control, .form-select, textarea, input[type="text"] {
+  background-color: #0f1c34;
+  border: 1px solid var(--fsl-line);
+  color: var(--fsl-text);
+}
+.form-control:focus {
+  border-color: var(--fsl-gold);
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.25);
+  background-color: #0f1c34;
+  color: var(--fsl-text);
+}
+
+/* --- Composer, dropdowns, modals ---------------------------------------- */
+.composer, .dropdown-menu, .modal-content {
+  background: #14243f;
+  border: 1px solid var(--fsl-line);
+  color: var(--fsl-text);
+}
+.dropdown-item { color: var(--fsl-text); }
+.dropdown-item:hover { background: var(--fsl-navy-soft); color: var(--fsl-gold-bright); }
+
+/* --- Sidebar / footer --------------------------------------------------- */
+#nav-drawer, .sidebar, .footer, footer {
+  background: #0b1526;
+  border-color: var(--fsl-line);
+}
+
+/* --- Accents ------------------------------------------------------------ */
+hr, .divider { border-color: var(--fsl-line); }
+a { color: var(--fsl-gold-bright); }
+a:hover { color: #ffffff; }
+blockquote {
+  border-left: 4px solid var(--fsl-fountain);
+  background: rgba(74, 168, 255, 0.08);
+  padding: 0.75rem 1rem;
+}
+::selection { background: var(--fsl-gold); color: #10203a; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0b1526; }
+::-webkit-scrollbar-thumb { background: var(--fsl-line); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--fsl-gold); }
