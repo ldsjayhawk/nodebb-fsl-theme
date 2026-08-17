@@ -161,4 +161,10 @@
     font-family: var(--font-body);
     color: var(--color-foreground);
   }
+
+  .light body {
+    background-image:
+      radial-gradient(ellipse 90% 55% at 50% -10%, color-mix(in oklab, var(--fountain) 10%, transparent), transparent 70%),
+      var(--gradient-stadium);
+  }
 }

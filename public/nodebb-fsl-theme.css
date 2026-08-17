@@ -190,3 +190,102 @@ blockquote {
 }
 .fsl-ad--leaderboard { min-height: 90px; }
 .fsl-ad--rectangle { min-height: 250px; max-width: 300px; }
+
+/* ==========================================================================
+   LIGHT VERSION — press-box white
+   Applies automatically when NodeBB is in light mode
+   (html[data-bs-theme="light"]). Delete this block for a dark-only forum.
+   ========================================================================== */
+html[data-bs-theme="light"] {
+  --fsl-navy-deep: #ffffff;
+  --fsl-navy: #ffffff;
+  --fsl-navy-soft: #eef2f8;
+  --fsl-line: #d3dced;
+  --fsl-gold: #a8811a;
+  --fsl-gold-bright: #d3a92f;
+  --fsl-fountain: #1f74d0;
+  --fsl-field: #2f7d42;
+  --fsl-text: #14233d;
+  --fsl-muted: #5b6b87;
+
+  --bs-body-bg: #f4f6fb;
+  --bs-body-color: var(--fsl-text);
+  --bs-secondary-bg: #ffffff;
+  --bs-tertiary-bg: #eef2f8;
+  --bs-border-color: var(--fsl-line);
+  --bs-link-color: #14498f;
+  --bs-link-hover-color: #0b2d5c;
+}
+
+html[data-bs-theme="light"] body {
+  background-color: #f4f6fb;
+  background-image:
+    radial-gradient(ellipse 90% 50% at 50% 0%, rgba(31, 116, 208, 0.12), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #eaf0f9 100%);
+  color: var(--fsl-text);
+}
+
+html[data-bs-theme="light"] .navbar,
+html[data-bs-theme="light"] #header-menu,
+html[data-bs-theme="light"] .header {
+  background: linear-gradient(180deg, #ffffff, #f0f4fa) !important;
+  border-bottom: 3px solid var(--fsl-gold);
+  box-shadow: 0 6px 18px -14px rgba(20, 35, 61, 0.5);
+}
+html[data-bs-theme="light"] .navbar .nav-link { color: var(--fsl-text) !important; }
+html[data-bs-theme="light"] .navbar .nav-link:hover,
+html[data-bs-theme="light"] .navbar .nav-link.active { color: #a8811a !important; }
+
+html[data-bs-theme="light"] .card,
+html[data-bs-theme="light"] .categories .category-item,
+html[data-bs-theme="light"] [component="category/topic"],
+html[data-bs-theme="light"] [component="post"],
+html[data-bs-theme="light"] .post-container,
+html[data-bs-theme="light"] .panel,
+html[data-bs-theme="light"] .composer,
+html[data-bs-theme="light"] .dropdown-menu,
+html[data-bs-theme="light"] .modal-content {
+  background: #ffffff;
+  border: 1px solid var(--fsl-line);
+  color: var(--fsl-text);
+}
+html[data-bs-theme="light"] .card-header,
+html[data-bs-theme="light"] .topic-list-header {
+  background: linear-gradient(180deg, #f7f9fd, #eef2f8);
+  border-bottom: 2px solid var(--fsl-gold);
+  color: var(--fsl-text);
+}
+html[data-bs-theme="light"] .btn-primary,
+html[data-bs-theme="light"] [component="category/post"] {
+  background: linear-gradient(180deg, #e2bb45, #b98f1d);
+  border-color: #8c6f14;
+  color: #14233d;
+}
+html[data-bs-theme="light"] .form-control,
+html[data-bs-theme="light"] .form-select,
+html[data-bs-theme="light"] textarea,
+html[data-bs-theme="light"] input[type="text"] {
+  background-color: #ffffff;
+  border-color: var(--fsl-line);
+  color: var(--fsl-text);
+}
+html[data-bs-theme="light"] .badge,
+html[data-bs-theme="light"] .tag-item,
+html[data-bs-theme="light"] .label {
+  background: rgba(31, 116, 208, 0.1);
+  border-color: rgba(31, 116, 208, 0.35);
+  color: #14498f;
+}
+html[data-bs-theme="light"] #nav-drawer,
+html[data-bs-theme="light"] .sidebar,
+html[data-bs-theme="light"] .footer,
+html[data-bs-theme="light"] footer { background: #ffffff; }
+html[data-bs-theme="light"] .fsl-ad {
+  background: linear-gradient(180deg, #ffffff, #eef2f8);
+  border-color: rgba(168, 129, 26, 0.5);
+}
+html[data-bs-theme="light"] blockquote {
+  background: rgba(31, 116, 208, 0.08);
+  border-left-color: var(--fsl-fountain);
+}
+html[data-bs-theme="light"] ::-webkit-scrollbar-track { background: #eef2f8; }
