@@ -59,6 +59,7 @@ function AdSlot({ label, className = "" }: { label: string; className?: string }
 
 function ThemePage() {
   const [copied, setCopied] = useState(false);
+  const [copiedAds, setCopiedAds] = useState(false);
   const [mode, setMode] = useState<"dark" | "light">("dark");
 
   useEffect(() => {
@@ -72,6 +73,14 @@ function ThemePage() {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  const copyAds = async () => {
+    const res = await fetch("/nodebb-fsl-ads.html");
+    await navigator.clipboard.writeText(await res.text());
+    setCopiedAds(true);
+    setTimeout(() => setCopiedAds(false), 2000);
+  };
+
 
   return (
     <main className="mx-auto max-w-6xl px-5 py-12">
