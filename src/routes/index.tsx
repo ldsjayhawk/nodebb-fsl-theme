@@ -132,6 +132,13 @@ function ThemePage() {
           >
             Download .css
           </a>
+          <a
+            href="/nodebb-fsl-page.html"
+            download
+            className="rounded-md border border-border bg-secondary px-6 py-3 font-display uppercase tracking-wider text-secondary-foreground transition hover:border-fountain"
+          >
+            Download full page .html
+          </a>
         </div>
       </header>
 
