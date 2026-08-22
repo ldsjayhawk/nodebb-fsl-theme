@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fantasy Sports Legends — NodeBB Forum Theme</title>
+<meta name="description" content="Standalone preview page for the Fantasy Sports Legends NodeBB theme: palette, forum mock, ad slots and install steps." />
+<link rel="icon" href="fsl-logo.png" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy-deep:#0b1526; --navy:#12213d; --navy-soft:#1b2f52; --line:#2c4470;
+  --gold:#c9a227; --gold-bright:#f0cf5e; --fountain:#4aa8ff; --field:#2f7d42;
+  --text:#e9eef7; --muted:#a3b2cc; --card:#12213d; --plate:linear-gradient(180deg,#16274a,#12213d);
+}
+html[data-bs-theme="light"]{
+  --navy-deep:#ffffff; --navy:#ffffff; --navy-soft:#eef2f8; --line:#d3dced;
+  --gold:#a8811a; --gold-bright:#d3a92f; --fountain:#1f74d0; --field:#2f7d42;
+  --text:#14233d; --muted:#5b6b87; --card:#ffffff; --plate:linear-gradient(180deg,#ffffff,#eef2f8);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:"Barlow",system-ui,sans-serif; color:var(--text);
+  background-color:var(--navy-deep);
+  background-image:radial-gradient(ellipse 90% 50% at 50% 0%,rgba(74,168,255,.18),transparent 70%),linear-gradient(180deg,#0b1526 0%,#16274a 100%);
+  background-attachment:fixed;
+}
+html[data-bs-theme="light"] body{
+  background-image:radial-gradient(ellipse 90% 50% at 50% 0%,rgba(31,116,208,.12),transparent 70%),linear-gradient(180deg,#ffffff 0%,#eaf0f9 100%);
+}
+h1,h2,h3,.display{font-family:"Anton","Barlow",sans-serif;text-transform:uppercase;letter-spacing:.02em;margin:0}
+main{max-width:1100px;margin:0 auto;padding:48px 20px}
+header.hero{display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center}
+header.hero img.crest{width:230px;filter:drop-shadow(0 18px 45px rgba(0,0,0,.8))}
+h1{font-size:clamp(2rem,5vw,3.6rem)}
+.sub{font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.35em;color:var(--gold);margin-top:6px;font-size:1.25rem}
+.lede{max-width:620px;margin:16px auto 0;color:var(--muted)}
+.toggle{display:inline-flex;border:1px solid var(--line);background:var(--navy-soft);border-radius:8px;padding:4px;gap:4px}
+.toggle button{font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.85rem;padding:7px 16px;border:0;border-radius:6px;background:transparent;color:var(--muted);cursor:pointer}
+.toggle button.active{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#10203a}
+.btnrow{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btn{font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.06em;padding:13px 22px;border-radius:8px;text-decoration:none;display:inline-block;cursor:pointer;border:1px solid #8c6f14;background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#10203a}
+.btn.ghost{background:var(--navy-soft);border:1px solid var(--line);color:var(--text)}
+section{margin-top:56px}
+section > h2{font-size:1.6rem;margin-bottom:16px}
+.palette{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}
+.swatch{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
+.swatch .chip{height:64px}
+.swatch .meta{padding:10px 12px}
+.swatch .meta b{display:block;font-size:.9rem}
+.swatch .meta span{font-size:.75rem;color:var(--muted)}
+.plate{border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 20px 50px -30px rgba(0,0,0,.9)}
+.navbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:var(--plate);border-bottom:3px solid var(--gold)}
+.navbar .brand{display:flex;align-items:center;gap:10px;font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.06em}
+.navbar .brand img{height:36px;width:36px;object-fit:contain}
+.navbar nav{display:flex;gap:20px;font-weight:600;font-size:.9rem}
+.navbar nav a{color:var(--text);text-decoration:none}
+.navbar nav a.active{color:var(--gold-bright)}
+.pill{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#10203a;font-weight:700;text-transform:uppercase;font-size:.75rem;padding:7px 12px;border-radius:6px}
+.rows{background:var(--card)}
+.row{display:flex;align-items:center;gap:16px;padding:16px;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row .accent{width:6px;height:40px;border-radius:999px}
+.row .info{flex:1;min-width:0}
+.row .info b{font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.04em;font-size:1.1rem;font-weight:400}
+.row .info p{margin:2px 0 0;font-size:.88rem;color:var(--muted)}
+.row .stats{text-align:right;font-size:.85rem;color:var(--muted)}
+.row .stats strong{color:var(--text)}
+.fsl-ad{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;margin:24px 0;padding:12px;min-height:90px;border:1px dashed rgba(201,162,39,.5);border-radius:8px;background:var(--plate);text-align:center}
+.fsl-ad--rectangle{min-height:250px;max-width:300px;margin-inline:auto}
+.fsl-ad-label{font-family:"Anton",sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.fsl-ad small{color:var(--muted)}
+.listhead{background:var(--navy-soft);border-bottom:2px solid var(--gold);padding:9px 16px;font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.8rem}
+ul.topics{list-style:none;margin:0;padding:0;background:var(--card)}
+ul.topics li{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+ul.topics li:last-child{border-bottom:0}
+.avatar{width:32px;height:32px;border-radius:6px;border:2px solid var(--gold);background:var(--navy-deep);flex:none}
+.topic-main{flex:1;min-width:0}
+.topic-main b{font-weight:600}
+.topic-main p{margin:2px 0 0;font-size:.75rem;color:var(--muted)}
+.tag{border:1px solid rgba(74,168,255,.4);background:rgba(74,168,255,.15);color:var(--fountain);border-radius:999px;padding:2px 10px;font-size:.72rem;font-weight:600}
+blockquote{margin:24px 0 0;border-left:4px solid var(--fountain);background:rgba(74,168,255,.08);padding:12px 16px;font-size:.9rem;border-radius:6px}
+.panel{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:24px}
+.panel ol{margin:16px 0 0;padding-left:18px;color:var(--muted);font-size:.9rem;line-height:1.9}
+.panel ol span{color:var(--text)}
+footer{margin-top:56px;border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--muted);font-size:.85rem}
+@media(max-width:640px){.navbar nav{display:none}.row .stats{display:none}}
+</style>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <img class="crest" src="fsl-logo.png" alt="Fantasy Sports Legends crest" />
+    <div>
+      <h1>Fantasy Sports Legends</h1>
+      <p class="sub">Forum Theme</p>
+      <p class="lede">A NodeBB skin drawn straight from the crest: stadium navy plates, championship gold edging and fountain-blue accents.</p>
+    </div>
+    <div class="toggle">
+      <button id="btn-dark" class="active" onclick="setMode('dark')">Night game</button>
+      <button id="btn-light" onclick="setMode('light')">Day game</button>
+    </div>
+    <div class="btnrow">
+      <a class="btn" href="nodebb-fsl-theme.css" download>Download .css</a>
+      <a class="btn ghost" href="nodebb-fsl-ads.html" download>Download ad widget HTML</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Palette</h2>
+    <div class="palette">
+      <div class="swatch"><div class="chip" style="background:#0B1526"></div><div class="meta"><b>Navy Deep</b><span>#0B1526</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#12213D"></div><div class="meta"><b>Stadium Navy</b><span>#12213D</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#C9A227"></div><div class="meta"><b>Championship Gold</b><span>#C9A227</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#F0CF5E"></div><div class="meta"><b>Trophy Gold</b><span>#F0CF5E</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#4AA8FF"></div><div class="meta"><b>Fountain Blue</b><span>#4AA8FF</span></div></div>
+      <div class="swatch"><div class="chip" style="background:#2F7D42"></div><div class="meta"><b>Outfield Green</b><span>#2F7D42</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Forum preview</h2>
+    <div class="plate">
+      <div class="navbar">
+        <div class="brand"><img src="fsl-logo.png" alt="" /><span>FSL Boards</span></div>
+        <nav><a class="active" href="#">Categories</a><a href="#">Recent</a><a href="#">Leagues</a><a href="#">Members</a></nav>
+        <span class="pill">New Topic</span>
+      </div>
+      <div class="rows">
+        <div class="row"><span class="accent" style="background:#C9A227"></span><div class="info"><b>Draft Room</b><p>Mocks, rankings and draft-day strategy</p></div><div class="stats"><div><strong>482</strong> topics</div><div><strong>12.4k</strong> posts</div></div></div>
+        <div class="row"><span class="accent" style="background:#4AA8FF"></span><div class="info"><b>Trade Block</b><p>Pitch it, veto it, argue about it</p></div><div class="stats"><div><strong>311</strong> topics</div><div><strong>8.9k</strong> posts</div></div></div>
+        <div class="row"><span class="accent" style="background:#2F7D42"></span><div class="info"><b>Waiver Wire</b><p>Weekly pickups and FAAB bidding wars</p></div><div class="stats"><div><strong>674</strong> topics</div><div><strong>21.2k</strong> posts</div></div></div>
+        <div class="row"><span class="accent" style="background:#F0CF5E"></span><div class="info"><b>Legends Lounge</b><p>Trash talk, league lore and hall of fame</p></div><div class="stats"><div><strong>190</strong> topics</div><div><strong>5.1k</strong> posts</div></div></div>
+      </div>
+    </div>
+
+    <!-- Leaderboard ad slot: replace the label with your AdSense / sponsor code -->
+    <div class="fsl-ad fsl-ad--leaderboard">
+      <span class="fsl-ad-label">Sponsored</span>
+      <small>Leaderboard ad · 728×90</small>
+    </div>
+
+    <div class="plate">
+      <div class="listhead">Recent topics</div>
+      <ul class="topics">
+        <li><span class="avatar"></span><div class="topic-main"><b>Week 1 start/sit megathread</b><p>by CommishKC · 2h ago</p></div><span class="tag">Pinned</span><span style="color:var(--muted);font-size:.85rem">214</span></li>
+        <li><span class="avatar"></span><div class="topic-main"><b>Is a 3-team trade ever fair?</b><p>by FountainCity · 2h ago</p></div><span class="tag">Hot</span><span style="color:var(--muted);font-size:.85rem">87</span></li>
+        <li><span class="avatar"></span><div class="topic-main"><b>Dynasty rookie rankings v4.0</b><p>by GoldGloveGM · 2h ago</p></div><span class="tag">Guide</span><span style="color:var(--muted);font-size:.85rem">132</span></li>
+      </ul>
+    </div>
+
+    <!-- In-feed / sidebar ad slot -->
+    <div class="fsl-ad fsl-ad--rectangle">
+      <span class="fsl-ad-label">Sponsored</span>
+      <small>In-feed / sidebar ad · 300×250</small>
+    </div>
+
+    <blockquote>Quotes, code blocks and alerts inherit the fountain-blue accent so replies stay readable against the navy plate.</blockquote>
+  </section>
+
+  <section class="panel">
+    <h2>Adding real ads</h2>
+    <ol>
+      <li>ACP → Extend → Widgets, pick a zone (Global Header, Sidebar or Global Footer).</li>
+      <li>Drag in an <span>HTML</span> widget.</li>
+      <li>Paste the ad snippet, drop your AdSense / sponsor code where marked, then Save.</li>
+      <li>AdSense users: add the loader <span>&lt;script&gt;</span> once in Appearance → Custom HTML &amp; CSS → Custom Header.</li>
+    </ol>
+  </section>
+
+  <section class="panel">
+    <h2>Install on NodeBB</h2>
+    <ol>
+      <li>In the ACP, install the Harmony skin and set the default dark mode.</li>
+      <li>Go to <span>Appearance → Custom HTML &amp; CSS</span>, enable custom CSS.</li>
+      <li>Paste the stylesheet, save, then rebuild &amp; restart NodeBB.</li>
+      <li>Upload the crest under <span>Settings → General</span> as the site logo and favicon.</li>
+    </ol>
+  </section>
+
+  <footer>Fantasy Sports Legends — theme preview</footer>
+</main>
+<script>
+function setMode(m){
+  document.documentElement.setAttribute('data-bs-theme', m);
+  document.getElementById('btn-dark').classList.toggle('active', m === 'dark');
+  document.getElementById('btn-light').classList.toggle('active', m === 'light');
+}
+</script>
+</body>
+</html>
